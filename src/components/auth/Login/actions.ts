@@ -23,7 +23,7 @@ export const loginUser = (data: ILoginModel) => {
                 }
             }
             //return { errorMessage: "Kuch to ghotala h" };
-
+            
         }
     }
-} 
+}

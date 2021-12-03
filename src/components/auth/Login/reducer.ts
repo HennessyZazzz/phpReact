@@ -8,7 +8,7 @@ const inialState : AuthState = {
 
 export const authReducer = (state=inialState, action: AuthAction) : AuthState => {
     switch(action.type) {
-
+       
         case AuthActionTypes.LOGIN_AUTH_SUCCESS: {
             return {
                 ...state, 
@@ -16,8 +16,8 @@ export const authReducer = (state=inialState, action: AuthAction) : AuthState =>
                     user: action.payload
             };
         }
-
+       
         default:
             return state;
     }
-} 
+}

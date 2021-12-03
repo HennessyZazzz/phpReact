@@ -1,19 +1,14 @@
 import React, {useState} from "react";
 import InputGroup from "../../common/InputGroup";
-import {useActions} from "../../../hooks/useActions";
-import { IRegisterModel } from "../../../types/auth";
 
 interface IRegisterPage {
-  name: string,
-  email: string,
-  password: string,
-  password_confirmation: string,
+  surname: string,
+  name: string
 };
 
 const RegisterPage = () => {
 
   const [model, setModel] = useState<IRegisterPage>({} as IRegisterPage);
-  const {registerUser} = useActions();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     
@@ -26,13 +21,6 @@ const RegisterPage = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("submit form", model);
-    const RegisterModel : IRegisterModel = {
-      name: model.name,
-      email: model.email,
-      password: model.password,
-      password_confirmation: model.password_confirmation,
-    }
-    registerUser(RegisterModel);
   }
 
   return (
@@ -41,37 +29,21 @@ const RegisterPage = () => {
         <div className="col-md-6 offset-md-3">
           <h1 className="text-center">Реєстрація на сайті</h1>
           <form onSubmit={handleSubmit}>
+            {/* <InputGroup 
+              label="Прізвище"
+              field="surname"
+              value=""
+              errors={[]}
+              onChange={handleChange}
+            />
+
             <InputGroup 
-              label="Name"
+              label="Ім'я"
               field="name"
-              value={model.name}
+              value=""
               errors={[]}
               onChange={handleChange}
-            />
-            <InputGroup 
-              label="Email"
-              field="email"
-              type="email"
-              value={model.email}
-              errors={[]}
-              onChange={handleChange}
-            />
-            <InputGroup 
-              label="Password"
-              field="password"
-              type="password"
-              value={model.password}
-              errors={[]}
-              onChange={handleChange}
-            />
-            <InputGroup 
-              label="Confirm password"
-              field="password_confirmation"
-              type="password"
-              value={model.password_confirmation}
-              errors={[]}
-              onChange={handleChange}
-            />
+            /> */}
 
             <button type="submit" className="btn btn-primary">
               Реєстрація
