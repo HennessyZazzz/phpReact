@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default axios.create({
-    baseURL: "http://local.laravel.pd913.com:100/",
+    baseURL: "http://laravel:8000/",
     headers: {
         "Content-type": "application/json"
     }

@@ -11,6 +11,7 @@ const LoginPage : FC = () => {
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false); 
 
   const navigator = useNavigate();
+  const {loginUser} = useActions();
 
   const initialState : ILoginModel = {
     email: "",
@@ -24,7 +25,6 @@ const LoginPage : FC = () => {
 
   const [serverErrors, setServerErrors] = useState<ServerLoginError>(initialErrors);
 
-  const {loginUser} = useActions();
 
   const onHandleSubmit = async (
     values: ILoginModel,
@@ -36,7 +36,9 @@ const LoginPage : FC = () => {
       await loginUser(values);
       console.log("Login end");
       setIsSubmitted(false);
-      navigator("/");
+
+      setTimeout(() => {navigator("/");}, 1000);
+      
     }
     catch(ex) {
       const serverErrors = ex as ServerLoginError;
