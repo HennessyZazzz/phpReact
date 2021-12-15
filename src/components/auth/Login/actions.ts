@@ -8,7 +8,6 @@ import axios, { AxiosError } from "axios";
 import jwt from 'jsonwebtoken';
 
 
-
 export const loginUser = (data: ILoginModel) => {
     return async (dispatch: Dispatch<AuthAction>) => {
         try {
@@ -32,8 +31,11 @@ export const loginUser = (data: ILoginModel) => {
     }
 }
 
+
 export const AuthUser = (token: string, dispatch: Dispatch<AuthAction>) =>  {
     const user = jwt.decode(token) as IUser;
+    console.log(token);
+    console.log(user);
     dispatch({
       type: AuthActionTypes.LOGIN_AUTH_SUCCESS,
       payload: user,

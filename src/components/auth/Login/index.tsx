@@ -6,6 +6,7 @@ import {useActions} from "../../../hooks/useActions";
 import { useFormik, Form, FormikProvider, FormikHelpers } from "formik";
 import {LoginSchema} from './validation';
 
+
 const LoginPage : FC = () => {
 
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false); 
@@ -43,7 +44,7 @@ const LoginPage : FC = () => {
     catch(ex) {
       const serverErrors = ex as ServerLoginError;
       setServerErrors(serverErrors);
-      if (serverErrors.password && serverErrors.password.length != 0) {
+      if (serverErrors.password && serverErrors.password.length !== 0) {
         setFieldError("password", serverErrors.password[0]);
       }
       //console.log("Login problem", serverErrors);
